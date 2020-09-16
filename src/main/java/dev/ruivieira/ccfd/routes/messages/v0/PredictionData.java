@@ -18,7 +18,7 @@ public class PredictionData {
         this.outcomes = outcomes;
     }
 
-    @JsonProperty("ndarray")
+    @JsonProperty("values")
     private List<Double> outcomes = new ArrayList<>();
 
     public List<String> getNames() {
