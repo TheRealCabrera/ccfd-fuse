@@ -18,13 +18,15 @@ public class PredictionData {
 
     //@JsonProperty("ndarray")
     @JsonProperty("tensor")
-    private List<Double> outcomes = new ArrayList<>();
+    //private List<Double> outcomes = new ArrayList<>();
+    @JsonProperty(value = "tensor")
+    private List<Map<String, Outcome>> Outcomes;
 
     public List<String> getNames() {
         return names;
     }
     
-    public List<Double> getOutcomes() {
+    public List<Map<String, Outcome>> getOutcomes() {
         return outcomes;
     }
 }
