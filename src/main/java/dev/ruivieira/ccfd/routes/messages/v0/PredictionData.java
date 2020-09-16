@@ -26,7 +26,7 @@ public class PredictionData {
     }
 
     public List<Double> getOutcomes() {
-        return outcomes.get("values");
+        return outcomes.get(1);
     }
 
 }
