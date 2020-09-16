@@ -14,7 +14,7 @@ public class PredictionData {
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private List<String> names = new ArrayList<>();
 
-    public void setOutcomes(List<Double> outcomes) {
+    public void setOutcomes(int outcomes) {
         this.outcomes = outcomes;
     }
 
@@ -26,7 +26,7 @@ public class PredictionData {
     }
 
     @JsonProperty("tensor")
-    public Double getOutcomes() {
+    public int getOutcomes() {
         return outcomes.get(1);
     }
 
