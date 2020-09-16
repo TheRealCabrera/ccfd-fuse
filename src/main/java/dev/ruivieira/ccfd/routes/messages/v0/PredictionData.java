@@ -18,7 +18,7 @@ public class PredictionData {
         this.outcomes = outcomes;
     }
 
-    @JsonProperty("values")
+    @JsonProperty("tensor")
     private List<Double> outcomes = new ArrayList<>();
 
     public List<String> getNames() {
@@ -26,7 +26,7 @@ public class PredictionData {
     }
 
     public List<Double> getOutcomes() {
-        return outcomes;
+        return outcomes.get("values");
     }
 
 }
