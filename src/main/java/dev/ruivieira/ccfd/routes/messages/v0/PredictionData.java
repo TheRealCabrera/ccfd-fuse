@@ -13,7 +13,7 @@ public class PredictionData {
     private List<String> names = new ArrayList<>();
     
     public void setOutcomes(List<Double> outcomes) {
-        this.outcomes = outcomes;
+        tensor.setOutcomes(outcomes);
     }
 
     //@JsonProperty("ndarray")
@@ -25,6 +25,6 @@ public class PredictionData {
     }
     
     public List<Double> getOutcomes() {
-        return tensor.getOutcomes;
+        return tensor.getOutcomes();
     }
 }
