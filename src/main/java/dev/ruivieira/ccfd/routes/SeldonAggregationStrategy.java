@@ -39,10 +39,6 @@ public class SeldonAggregationStrategy implements AggregationStrategy {
     public Exchange aggregate(Exchange original, Exchange resource) {
         Object originalBody = original.getIn().getBody();
         Object resourceResponse = resource.getIn().getBody(String.class);
-        
-        logger.info("originalBody: " + originalBody.toString());
-        logger.info("resourceResponse: " + resourceResponse);
-        logger.info("USE_SELDON_STANDARD: " + USE_SELDON_STANDARD);
 
         List<Double> features = new ArrayList<>();
 
@@ -59,8 +55,6 @@ public class SeldonAggregationStrategy implements AggregationStrategy {
                     features.add(Double.parseDouble(f));
                 }
             }
-            
-            logger.info("features len: " + features.size());
 
             Prediction prediction = new Prediction();
 
@@ -70,9 +64,7 @@ public class SeldonAggregationStrategy implements AggregationStrategy {
             } else {
                 dev.ruivieira.ccfd.routes.messages.v0.PredictionResponse response = responseMapper.readValue(resourceResponse.toString(), dev.ruivieira.ccfd.routes.messages.v0.PredictionResponse.class);
                 List<Double> predictionList = response.getData().getOutcomes();
-                //logger.info(response.getData().getOutcomes());
                 prediction.setProbability(predictionList.get(0));
-                //prediction.setProbability(response.getData().getOutcomes());
             }
 
             Classification classification = new Classification();
@@ -105,6 +97,8 @@ public class SeldonAggregationStrategy implements AggregationStrategy {
                 original.getIn().setBody(mergeResult, Map.class);
                 original.getIn().setHeader("fraudulent", classification.isFraudulent());
             }
+            
+            logger.info("is fradulent? " + classification.isFraudulent());
 
         } catch (IOException e) {
             e.printStackTrace();
