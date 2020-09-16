@@ -60,7 +60,7 @@ public class SeldonAggregationStrategy implements AggregationStrategy {
                 }
             }
             
-            logger.info("features len: " + features.length);
+            logger.info("features len: " + features.length());
 
             Prediction prediction = new Prediction();
 
