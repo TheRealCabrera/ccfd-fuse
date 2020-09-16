@@ -1,4 +1,15 @@
-@JsonRootName(value = "tensor")
+package dev.ruivieira.ccfd.routes.messages.v0;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+    @JsonRootName(value = "tensor")
     public class Tensor {
 
         @JsonProperty(value="values")
@@ -12,7 +23,7 @@
             this.outcomes = outcomes;
         }
 
-        public List<String> getShape() {
+        public List<Double> getShape() {
             return shape;
         }
 
