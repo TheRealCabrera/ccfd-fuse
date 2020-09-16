@@ -39,7 +39,13 @@ public class SeldonAggregationStrategy implements AggregationStrategy {
     public Exchange aggregate(Exchange original, Exchange resource) {
         Object originalBody = original.getIn().getBody();
         Object resourceResponse = resource.getIn().getBody(String.class);
-
+        
+        print("originalBody: ")
+        print(originalBody)
+        print("resourceResponse: ")
+        print(resourceResponse)
+        print("USE_SELDON_STANDARD: ")
+        print(USE_SELDON_STANDARD)
 
         List<Double> features = new ArrayList<>();
 
@@ -56,7 +62,9 @@ public class SeldonAggregationStrategy implements AggregationStrategy {
                     features.add(Double.parseDouble(f));
                 }
             }
-
+            
+            print("features len: ")
+            print(len(features))
 
             Prediction prediction = new Prediction();
 
