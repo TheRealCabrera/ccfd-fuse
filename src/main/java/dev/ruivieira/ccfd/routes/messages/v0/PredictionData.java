@@ -18,14 +18,15 @@ public class PredictionData {
         this.outcomes = outcomes;
     }
 
-    @JsonProperty("tensor")
-    private List<Double> outcomes = new ArrayList<>();
+    //@JsonProperty("tensor")
+    //private List<Double> outcomes = new ArrayList<>();
 
     public List<String> getNames() {
         return names;
     }
 
-    public List<Double> getOutcomes() {
+    @JsonProperty("tensor")
+    public Double getOutcomes() {
         return outcomes.get(1);
     }
 
