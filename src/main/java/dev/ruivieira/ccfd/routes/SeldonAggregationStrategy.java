@@ -69,9 +69,9 @@ public class SeldonAggregationStrategy implements AggregationStrategy {
                 prediction.setProbability(response.getData().getOutcomes().get(0).get(0));
             } else {
                 dev.ruivieira.ccfd.routes.messages.v0.PredictionResponse response = responseMapper.readValue(resourceResponse.toString(), dev.ruivieira.ccfd.routes.messages.v0.PredictionResponse.class);
-                List<Map<String, Double>> predictionList = response.getData().getOutcomes();
+                List<Double> predictionList = response.getData().getOutcomes();
                 //logger.info(response.getData().getOutcomes());
-                prediction.setProbability(predictionList.get(1));
+                prediction.setProbability(predictionList.get(0));
                 //prediction.setProbability(response.getData().getOutcomes());
             }
 
