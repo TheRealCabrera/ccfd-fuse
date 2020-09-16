@@ -40,12 +40,9 @@ public class SeldonAggregationStrategy implements AggregationStrategy {
         Object originalBody = original.getIn().getBody();
         Object resourceResponse = resource.getIn().getBody(String.class);
         
-        print("originalBody: ")
-        print(originalBody)
-        print("resourceResponse: ")
-        print(resourceResponse)
-        print("USE_SELDON_STANDARD: ")
-        print(USE_SELDON_STANDARD)
+        logger.info("originalBody: " + originalBody.toString());
+        logger.info("resourceResponse: " + resourceResponse);
+        logger.info("USE_SELDON_STANDARD: " + USE_SELDON_STANDARD);
 
         List<Double> features = new ArrayList<>();
 
@@ -63,8 +60,7 @@ public class SeldonAggregationStrategy implements AggregationStrategy {
                 }
             }
             
-            print("features len: ")
-            print(len(features))
+            logger.info("features len: " + features.length);
 
             Prediction prediction = new Prediction();
 
